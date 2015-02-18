@@ -1,0 +1,9 @@
+C:\Projetos\Protocolo\ProNegocio\bin\Debug\ProNegocio.dll
+C:\Projetos\Protocolo\ProNegocio\bin\Debug\ProNegocio.pdb
+C:\Projetos\Protocolo\ProNegocio\obj\Debug\ProNegocio.csprojResolveAssemblyReference.cache
+C:\Projetos\Protocolo\ProNegocio\obj\Debug\ProNegocio.dll
+C:\Projetos\Protocolo\ProNegocio\obj\Debug\ProNegocio.pdb
+C:\Projetos\Protocolo\ProNegocio\bin\Debug\ProDados.dll
+C:\Projetos\Protocolo\ProNegocio\bin\Debug\EntityFramework.dll
+C:\Projetos\Protocolo\ProNegocio\bin\Debug\ProDados.pdb
+C:\Projetos\Protocolo\ProNegocio\bin\Debug\EntityFramework.xml
