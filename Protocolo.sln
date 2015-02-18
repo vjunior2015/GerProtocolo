@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocolo", "Protocolo\Protocolo.csproj", "{0793A4FF-85B9-415C-8B4F-9D666625CA57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProNegocio", "ProNegocio\ProNegocio.csproj", "{9388981A-8692-4058-8606-F30BBDA6715B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProDados", "ProDados\ProDados.csproj", "{F4100513-00B0-4107-991C-5A8A7EDC6A70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0793A4FF-85B9-415C-8B4F-9D666625CA57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0793A4FF-85B9-415C-8B4F-9D666625CA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0793A4FF-85B9-415C-8B4F-9D666625CA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0793A4FF-85B9-415C-8B4F-9D666625CA57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9388981A-8692-4058-8606-F30BBDA6715B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9388981A-8692-4058-8606-F30BBDA6715B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9388981A-8692-4058-8606-F30BBDA6715B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9388981A-8692-4058-8606-F30BBDA6715B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4100513-00B0-4107-991C-5A8A7EDC6A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4100513-00B0-4107-991C-5A8A7EDC6A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4100513-00B0-4107-991C-5A8A7EDC6A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4100513-00B0-4107-991C-5A8A7EDC6A70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
