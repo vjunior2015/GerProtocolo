@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="protocoloModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="protocoloModelStoreContainer">
+    <EntitySet Name="tb_cidade" EntityType="protocoloModel.Store.tb_cidade" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_departamento" EntityType="protocoloModel.Store.tb_departamento" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_escolaridade" EntityType="protocoloModel.Store.tb_escolaridade" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_estado" EntityType="protocoloModel.Store.tb_estado" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_protocolo" EntityType="protocoloModel.Store.tb_protocolo" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_protocolo_anexo" EntityType="protocoloModel.Store.tb_protocolo_anexo" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_protocolo_historico" EntityType="protocoloModel.Store.tb_protocolo_historico" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_protocolo_status" EntityType="protocoloModel.Store.tb_protocolo_status" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_tipodocumento" EntityType="protocoloModel.Store.tb_tipodocumento" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_usuario" EntityType="protocoloModel.Store.tb_usuario" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_usuario_nivel" EntityType="protocoloModel.Store.tb_usuario_nivel" store:Type="Tables" Schema="db_protocolo" />
+    <EntitySet Name="tb_usuario_status" EntityType="protocoloModel.Store.tb_usuario_status" store:Type="Tables" Schema="db_protocolo" />
+  </EntityContainer>
+  <EntityType Name="tb_cidade">
+    <Key>
+      <PropertyRef Name="IDCIDADE" />
+    </Key>
+    <Property Name="IDCIDADE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UF" Type="varchar" MaxLength="2" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_departamento">
+    <Key>
+      <PropertyRef Name="IDDEPARTAMENTO" />
+    </Key>
+    <Property Name="IDDEPARTAMENTO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DEPARTAMENTO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_escolaridade">
+    <Key>
+      <PropertyRef Name="IDESCOLARIDADE" />
+    </Key>
+    <Property Name="IDESCOLARIDADE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ESCOLARIDADE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_estado">
+    <Key>
+      <PropertyRef Name="UF" />
+    </Key>
+    <Property Name="UF" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_protocolo">
+    <Key>
+      <PropertyRef Name="IDPROTOCOLO" />
+    </Key>
+    <Property Name="IDPROTOCOLO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroProtocolo" Type="varchar" MaxLength="45" />
+    <Property Name="Assunto" Type="varchar" MaxLength="100" />
+    <Property Name="Data" Type="datetime" />
+    <Property Name="Descricao" Type="varchar" MaxLength="500" />
+    <Property Name="Observacao" Type="varchar" MaxLength="500" />
+    <Property Name="NumeroEtiqueta" Type="varchar" MaxLength="45" />
+    <Property Name="Destinatario" Type="int" />
+    <Property Name="Solicitante" Type="int" />
+    <Property Name="CriadoPor" Type="int" />
+    <Property Name="IDTIPODOCUMENTO" Type="int" />
+    <Property Name="IDSTATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_protocolo_anexo">
+    <Key>
+      <PropertyRef Name="IDPROTOCOLOANEXO" />
+    </Key>
+    <Property Name="IDPROTOCOLOANEXO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IDPROTOCOLO" Type="int" />
+    <Property Name="ARQUIVO" Type="varchar" MaxLength="200" />
+    <Property Name="TIPOARQUIVO" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tb_protocolo_historico">
+    <Key>
+      <PropertyRef Name="IDPROTOCOLOHISTORICO" />
+    </Key>
+    <Property Name="IDPROTOCOLOHISTORICO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IDUSUARIORESPONSAVEL" Type="int" Nullable="false" />
+    <Property Name="IDPROTOCOLO" Type="int" Nullable="false" />
+    <Property Name="IDDEPARTAMENTO" Type="int" />
+    <Property Name="DETALHAMENTO" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tb_protocolo_status">
+    <Key>
+      <PropertyRef Name="IDSTATUS" />
+    </Key>
+    <Property Name="IDSTATUS" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="STATUS" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tb_tipodocumento">
+    <Key>
+      <PropertyRef Name="IDTIPODOCUMENTO" />
+    </Key>
+    <Property Name="IDTIPODOCUMENTO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TIPO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="varchar" MaxLength="100" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="20" />
+    <Property Name="SENHA" Type="varchar" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="CPFCNPJ" Type="varchar" MaxLength="20" />
+    <Property Name="SEXO" Type="varchar" MaxLength="1" />
+    <Property Name="FAIXAETARIA" Type="varchar" MaxLength="30" />
+    <Property Name="PROFISSAO" Type="varchar" MaxLength="100" />
+    <Property Name="DDDTELEFONE" Type="varchar" MaxLength="2" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="20" />
+    <Property Name="DDDCELULAR" Type="varchar" MaxLength="2" />
+    <Property Name="CELULAR" Type="varchar" MaxLength="20" />
+    <Property Name="ENDERECO" Type="varchar" MaxLength="100" />
+    <Property Name="BAIRRO" Type="varchar" MaxLength="80" />
+    <Property Name="CEP" Type="varchar" MaxLength="20" />
+    <Property Name="IDCIDADE" Type="int" />
+    <Property Name="IDSTATUS" Type="int" />
+    <Property Name="IDNIVEL" Type="int" />
+    <Property Name="IDESCOLARIDADE" Type="int" />
+    <Property Name="IDDEPARTAMENTO" Type="int" />
+    <Property Name="OUTRALOCALIDADE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_usuario_nivel">
+    <Key>
+      <PropertyRef Name="IDUSUARIONIVEL" />
+    </Key>
+    <Property Name="IDUSUARIONIVEL" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NIVEL" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tb_usuario_status">
+    <Key>
+      <PropertyRef Name="IDUSUARIOSTATUS" />
+    </Key>
+    <Property Name="IDUSUARIOSTATUS" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="STATUS" Type="varchar" MaxLength="45" />
+  </EntityType>
+</Schema>

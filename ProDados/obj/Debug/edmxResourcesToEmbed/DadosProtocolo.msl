@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="protocoloModelStoreContainer" CdmEntityContainer="protocoloEntities">
+    <EntitySetMapping Name="tb_cidade">
+      <EntityTypeMapping TypeName="protocoloModel.tb_cidade">
+        <MappingFragment StoreEntitySet="tb_cidade">
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="IDCIDADE" ColumnName="IDCIDADE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_departamento">
+      <EntityTypeMapping TypeName="protocoloModel.tb_departamento">
+        <MappingFragment StoreEntitySet="tb_departamento">
+          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+          <ScalarProperty Name="IDDEPARTAMENTO" ColumnName="IDDEPARTAMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_escolaridade">
+      <EntityTypeMapping TypeName="protocoloModel.tb_escolaridade">
+        <MappingFragment StoreEntitySet="tb_escolaridade">
+          <ScalarProperty Name="ESCOLARIDADE" ColumnName="ESCOLARIDADE" />
+          <ScalarProperty Name="IDESCOLARIDADE" ColumnName="IDESCOLARIDADE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_estado">
+      <EntityTypeMapping TypeName="protocoloModel.tb_estado">
+        <MappingFragment StoreEntitySet="tb_estado">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_protocolo">
+      <EntityTypeMapping TypeName="protocoloModel.tb_protocolo">
+        <MappingFragment StoreEntitySet="tb_protocolo">
+          <ScalarProperty Name="IDSTATUS" ColumnName="IDSTATUS" />
+          <ScalarProperty Name="IDTIPODOCUMENTO" ColumnName="IDTIPODOCUMENTO" />
+          <ScalarProperty Name="CriadoPor" ColumnName="CriadoPor" />
+          <ScalarProperty Name="Solicitante" ColumnName="Solicitante" />
+          <ScalarProperty Name="Destinatario" ColumnName="Destinatario" />
+          <ScalarProperty Name="NumeroEtiqueta" ColumnName="NumeroEtiqueta" />
+          <ScalarProperty Name="Observacao" ColumnName="Observacao" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="NumeroProtocolo" ColumnName="NumeroProtocolo" />
+          <ScalarProperty Name="IDPROTOCOLO" ColumnName="IDPROTOCOLO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_protocolo_anexo">
+      <EntityTypeMapping TypeName="protocoloModel.tb_protocolo_anexo">
+        <MappingFragment StoreEntitySet="tb_protocolo_anexo">
+          <ScalarProperty Name="TIPOARQUIVO" ColumnName="TIPOARQUIVO" />
+          <ScalarProperty Name="ARQUIVO" ColumnName="ARQUIVO" />
+          <ScalarProperty Name="IDPROTOCOLO" ColumnName="IDPROTOCOLO" />
+          <ScalarProperty Name="IDPROTOCOLOANEXO" ColumnName="IDPROTOCOLOANEXO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_protocolo_historico">
+      <EntityTypeMapping TypeName="protocoloModel.tb_protocolo_historico">
+        <MappingFragment StoreEntitySet="tb_protocolo_historico">
+          <ScalarProperty Name="DETALHAMENTO" ColumnName="DETALHAMENTO" />
+          <ScalarProperty Name="IDDEPARTAMENTO" ColumnName="IDDEPARTAMENTO" />
+          <ScalarProperty Name="IDPROTOCOLO" ColumnName="IDPROTOCOLO" />
+          <ScalarProperty Name="IDUSUARIORESPONSAVEL" ColumnName="IDUSUARIORESPONSAVEL" />
+          <ScalarProperty Name="IDPROTOCOLOHISTORICO" ColumnName="IDPROTOCOLOHISTORICO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_protocolo_status">
+      <EntityTypeMapping TypeName="protocoloModel.tb_protocolo_status">
+        <MappingFragment StoreEntitySet="tb_protocolo_status">
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="IDSTATUS" ColumnName="IDSTATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipodocumento">
+      <EntityTypeMapping TypeName="protocoloModel.tb_tipodocumento">
+        <MappingFragment StoreEntitySet="tb_tipodocumento">
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="IDTIPODOCUMENTO" ColumnName="IDTIPODOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario">
+      <EntityTypeMapping TypeName="protocoloModel.tb_usuario">
+        <MappingFragment StoreEntitySet="tb_usuario">
+          <ScalarProperty Name="OUTRALOCALIDADE" ColumnName="OUTRALOCALIDADE" />
+          <ScalarProperty Name="IDDEPARTAMENTO" ColumnName="IDDEPARTAMENTO" />
+          <ScalarProperty Name="IDESCOLARIDADE" ColumnName="IDESCOLARIDADE" />
+          <ScalarProperty Name="IDNIVEL" ColumnName="IDNIVEL" />
+          <ScalarProperty Name="IDSTATUS" ColumnName="IDSTATUS" />
+          <ScalarProperty Name="IDCIDADE" ColumnName="IDCIDADE" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+          <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+          <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+          <ScalarProperty Name="DDDCELULAR" ColumnName="DDDCELULAR" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="DDDTELEFONE" ColumnName="DDDTELEFONE" />
+          <ScalarProperty Name="PROFISSAO" ColumnName="PROFISSAO" />
+          <ScalarProperty Name="FAIXAETARIA" ColumnName="FAIXAETARIA" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="CPFCNPJ" ColumnName="CPFCNPJ" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario_nivel">
+      <EntityTypeMapping TypeName="protocoloModel.tb_usuario_nivel">
+        <MappingFragment StoreEntitySet="tb_usuario_nivel">
+          <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+          <ScalarProperty Name="IDUSUARIONIVEL" ColumnName="IDUSUARIONIVEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario_status">
+      <EntityTypeMapping TypeName="protocoloModel.tb_usuario_status">
+        <MappingFragment StoreEntitySet="tb_usuario_status">
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="IDUSUARIOSTATUS" ColumnName="IDUSUARIOSTATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

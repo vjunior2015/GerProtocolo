@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="015cac5a054e4d589fcdba45466e86ef" Name="Diagram1">
+        <EntityTypeShape EntityType="protocoloModel.tb_cidade" Width="1.5" PointX="9.6933635797786355" PointY="0.5460491629997497" />
+        <EntityTypeShape EntityType="protocoloModel.tb_departamento" Width="1.5" PointX="1.2813631469762712" PointY="31.153559445940683" />
+        <EntityTypeShape EntityType="protocoloModel.tb_escolaridade" Width="1.5" PointX="1.3920139192566341" PointY="23.769393961769246" />
+        <EntityTypeShape EntityType="protocoloModel.tb_estado" Width="1.5" PointX="3.1329398132548389" PointY="15.413175247336353" />
+        <EntityTypeShape EntityType="protocoloModel.tb_protocolo" Width="1.5" PointX="2.4957022548167513" PointY="5.7688442346494853" />
+        <EntityTypeShape EntityType="protocoloModel.tb_protocolo_anexo" Width="1.5" PointX="3.1684989254774987" PointY="14.0914205825382" />
+        <EntityTypeShape EntityType="protocoloModel.tb_protocolo_historico" Width="1.5" PointX="9.0849660993949364" PointY="30.1101877084515" />
+        <EntityTypeShape EntityType="protocoloModel.tb_protocolo_status" Width="1.5" PointX="0.64951323003019823" PointY="22.849895011098074" />
+        <EntityTypeShape EntityType="protocoloModel.tb_tipodocumento" Width="1.5" PointX="4.1206586063470034" PointY="16.492356829574497" />
+        <EntityTypeShape EntityType="protocoloModel.tb_usuario" Width="1.5" PointX="2.6662832939374645" PointY="23.272668953646285" />
+        <EntityTypeShape EntityType="protocoloModel.tb_usuario_nivel" Width="1.5" PointX="8.55891136851111" PointY="0.34052506105067443" />
+        <EntityTypeShape EntityType="protocoloModel.tb_usuario_status" Width="1.5" PointX="1.65558700526859" PointY="28.182664884339395" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4100513-00B0-4107-991C-5A8A7EDC6A70}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProDados</RootNamespace>
+    <AssemblyName>ProDados</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DadosProtocolo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DadosProtocolo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DadosProtocolo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DadosProtocolo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DadosProtocolo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tb_cidade.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_departamento.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_escolaridade.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_estado.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_protocolo.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_protocolo_anexo.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_protocolo_historico.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_protocolo_status.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_tipodocumento.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_usuario.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_usuario_nivel.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_usuario_status.cs">
+      <DependentUpon>DadosProtocolo.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DadosProtocolo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DadosProtocolo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="DadosProtocolo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DadosProtocolo.edmx</DependentUpon>
+      <LastGenOutput>DadosProtocolo.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DadosProtocolo.edmx.diagram">
+      <DependentUpon>DadosProtocolo.edmx</DependentUpon>
+    </None>
+    <None Include="DadosProtocolo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DadosProtocolo.edmx</DependentUpon>
+      <LastGenOutput>DadosProtocolo.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

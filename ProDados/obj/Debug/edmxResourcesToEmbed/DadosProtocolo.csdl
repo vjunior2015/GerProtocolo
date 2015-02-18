@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="protocoloModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="protocoloEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_cidade" EntityType="protocoloModel.tb_cidade" />
+    <EntitySet Name="tb_departamento" EntityType="protocoloModel.tb_departamento" />
+    <EntitySet Name="tb_escolaridade" EntityType="protocoloModel.tb_escolaridade" />
+    <EntitySet Name="tb_estado" EntityType="protocoloModel.tb_estado" />
+    <EntitySet Name="tb_protocolo" EntityType="protocoloModel.tb_protocolo" />
+    <EntitySet Name="tb_protocolo_anexo" EntityType="protocoloModel.tb_protocolo_anexo" />
+    <EntitySet Name="tb_protocolo_historico" EntityType="protocoloModel.tb_protocolo_historico" />
+    <EntitySet Name="tb_protocolo_status" EntityType="protocoloModel.tb_protocolo_status" />
+    <EntitySet Name="tb_tipodocumento" EntityType="protocoloModel.tb_tipodocumento" />
+    <EntitySet Name="tb_usuario" EntityType="protocoloModel.tb_usuario" />
+    <EntitySet Name="tb_usuario_nivel" EntityType="protocoloModel.tb_usuario_nivel" />
+    <EntitySet Name="tb_usuario_status" EntityType="protocoloModel.tb_usuario_status" />
+  </EntityContainer>
+  <EntityType Name="tb_cidade">
+    <Key>
+      <PropertyRef Name="IDCIDADE" />
+    </Key>
+    <Property Type="Int32" Name="IDCIDADE" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UF" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CIDADE" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_departamento">
+    <Key>
+      <PropertyRef Name="IDDEPARTAMENTO" />
+    </Key>
+    <Property Type="Int32" Name="IDDEPARTAMENTO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DEPARTAMENTO" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_escolaridade">
+    <Key>
+      <PropertyRef Name="IDESCOLARIDADE" />
+    </Key>
+    <Property Type="Int32" Name="IDESCOLARIDADE" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ESCOLARIDADE" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_estado">
+    <Key>
+      <PropertyRef Name="UF" />
+    </Key>
+    <Property Type="String" Name="UF" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ESTADO" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_protocolo">
+    <Key>
+      <PropertyRef Name="IDPROTOCOLO" />
+    </Key>
+    <Property Type="Int32" Name="IDPROTOCOLO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NumeroProtocolo" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Assunto" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Data" Precision="0" />
+    <Property Type="String" Name="Descricao" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Observacao" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NumeroEtiqueta" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Destinatario" />
+    <Property Type="Int32" Name="Solicitante" />
+    <Property Type="Int32" Name="CriadoPor" />
+    <Property Type="Int32" Name="IDTIPODOCUMENTO" />
+    <Property Type="Int32" Name="IDSTATUS" />
+  </EntityType>
+  <EntityType Name="tb_protocolo_anexo">
+    <Key>
+      <PropertyRef Name="IDPROTOCOLOANEXO" />
+    </Key>
+    <Property Type="Int32" Name="IDPROTOCOLOANEXO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="IDPROTOCOLO" />
+    <Property Type="String" Name="ARQUIVO" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TIPOARQUIVO" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_protocolo_historico">
+    <Key>
+      <PropertyRef Name="IDPROTOCOLOHISTORICO" />
+    </Key>
+    <Property Type="Int32" Name="IDPROTOCOLOHISTORICO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="IDUSUARIORESPONSAVEL" Nullable="false" />
+    <Property Type="Int32" Name="IDPROTOCOLO" Nullable="false" />
+    <Property Type="Int32" Name="IDDEPARTAMENTO" />
+    <Property Type="String" Name="DETALHAMENTO" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_protocolo_status">
+    <Key>
+      <PropertyRef Name="IDSTATUS" />
+    </Key>
+    <Property Type="Int32" Name="IDSTATUS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="STATUS" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_tipodocumento">
+    <Key>
+      <PropertyRef Name="IDTIPODOCUMENTO" />
+    </Key>
+    <Property Type="Int32" Name="IDTIPODOCUMENTO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TIPO" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Type="Int32" Name="IDUSUARIO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NOME" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="USUARIO" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SENHA" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EMAIL" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CPFCNPJ" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SEXO" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FAIXAETARIA" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PROFISSAO" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DDDTELEFONE" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TELEFONE" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DDDCELULAR" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CELULAR" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ENDERECO" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BAIRRO" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CEP" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="IDCIDADE" />
+    <Property Type="Int32" Name="IDSTATUS" />
+    <Property Type="Int32" Name="IDNIVEL" />
+    <Property Type="Int32" Name="IDESCOLARIDADE" />
+    <Property Type="Int32" Name="IDDEPARTAMENTO" />
+    <Property Type="String" Name="OUTRALOCALIDADE" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_usuario_nivel">
+    <Key>
+      <PropertyRef Name="IDUSUARIONIVEL" />
+    </Key>
+    <Property Type="Int32" Name="IDUSUARIONIVEL" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NIVEL" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_usuario_status">
+    <Key>
+      <PropertyRef Name="IDUSUARIOSTATUS" />
+    </Key>
+    <Property Type="Int32" Name="IDUSUARIOSTATUS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="STATUS" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

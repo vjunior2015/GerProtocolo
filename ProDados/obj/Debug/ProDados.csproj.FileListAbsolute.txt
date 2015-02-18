@@ -1,0 +1,8 @@
+C:\Projetos\Protocolo\ProDados\bin\Debug\ProDados.dll.config
+C:\Projetos\Protocolo\ProDados\bin\Debug\ProDados.dll
+C:\Projetos\Protocolo\ProDados\bin\Debug\ProDados.pdb
+C:\Projetos\Protocolo\ProDados\bin\Debug\EntityFramework.dll
+C:\Projetos\Protocolo\ProDados\bin\Debug\EntityFramework.xml
+C:\Projetos\Protocolo\ProDados\obj\Debug\ProDados.dll
+C:\Projetos\Protocolo\ProDados\obj\Debug\ProDados.pdb
+C:\Projetos\Protocolo\ProDados\obj\Debug\ProDados.csprojResolveAssemblyReference.cache
