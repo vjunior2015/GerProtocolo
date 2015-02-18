@@ -1,0 +1,11 @@
+C:\Projetos\Protocolo\Protocolo\bin\Protocolo.dll
+C:\Projetos\Protocolo\Protocolo\bin\Protocolo.pdb
+C:\Projetos\Protocolo\Protocolo\bin\EntityFramework.dll
+C:\Projetos\Protocolo\Protocolo\bin\ProDados.dll
+C:\Projetos\Protocolo\Protocolo\bin\ProNegocio.dll
+C:\Projetos\Protocolo\Protocolo\bin\EntityFramework.xml
+C:\Projetos\Protocolo\Protocolo\bin\ProDados.pdb
+C:\Projetos\Protocolo\Protocolo\bin\ProNegocio.pdb
+C:\Projetos\Protocolo\Protocolo\obj\Release\Protocolo.csprojResolveAssemblyReference.cache
+C:\Projetos\Protocolo\Protocolo\obj\Release\Protocolo.dll
+C:\Projetos\Protocolo\Protocolo\obj\Release\Protocolo.pdb
