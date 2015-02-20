@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Protocolo.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Protocolo</title>
+    <link rel="stylesheet" href="css/Site.css"  type="text/css" media="screen" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+<header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">
+                    <a id="A1" runat="server" href="~/">PROTOCOLO</a>
+                </p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">                 
+                        <LoggedInTemplate>
+                            <p>
+                              Seja bem-vindo(a), 
+                                    <asp:LoginName ID="LoginName1" runat="server" CssClass="username" /></a>!
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+                <nav>
+                    <ul id="menu">
+                         <li><asp:LinkButton ID="lnkHome" runat="server" OnClick="lnkHome_Click">Home</asp:LinkButton></li>
+                         <li><asp:LinkButton ID="lnkLogin" runat="server" OnClick="lnkLogin_Click" >Login</asp:LinkButton></li>
+		                <li><asp:LinkButton ID="lnkCadastro" runat="server" OnClick="lnkCadastro_Click">Cadastre-se</asp:LinkButton></li>		              
+		                <li><asp:LinkButton ID="lnkSair" runat="server">Sair</asp:LinkButton></li> 
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="body">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+      
+        
+    <footer>
+        <div class="content-wrapper" >
+            <div class="float-left" style="text-align:center;">
+                <p style="text-align:center">&copy; <%: DateTime.Now.Year %> - Protocolo - Todos os direitos reservados </p>
+            </div>
+        </div>
+    </footer>
+
+
+    </form>
+</body>
+</html>
