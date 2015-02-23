@@ -37,7 +37,7 @@ namespace ProNegocio
         public Usuario() {
 
             _pessoa = new Pessoa();
-            //_pessoa.Endereco = new Endereco();
+           
         
         }
 
@@ -46,34 +46,35 @@ namespace ProNegocio
  
                
             tb_usuario addusuario = new tb_usuario();
-            
-            addusuario.USUARIO = Nusuario;
-            addusuario.BAIRRO= Pessoa.Endereco.Bairro   ;
-            addusuario.CEP= Pessoa.Endereco.Cep   ;
-            addusuario.FAIXAETARIA =  Pessoa.Faixaetaria;
-            addusuario.IDCIDADE = Pessoa.Endereco.Idcidade  ;
+
+            addusuario.USUARIO = Pessoa.Email;
             addusuario.NOME = Pessoa.Nome;
-            addusuario.PROFISSAO = Pessoa.Profissao;
-            addusuario.SENHA = Senha;
-            addusuario.SEXO = Pessoa.Sexo;
+            addusuario.CPFCNPJ = Pessoa.Cpfcnpj;
+            addusuario.SEXO =Pessoa.Sexo.Trim() ;
+            
+            addusuario.FAIXAETARIA = Pessoa.Faixaetaria;
             addusuario.TELEFONE = Pessoa.Telefone.Numero;
             addusuario.DDDTELEFONE = Pessoa.Telefone.Ddd;
+            addusuario.CELULAR = Pessoa.Celular.Numero;
+            addusuario.DDDCELULAR = Pessoa.Celular.Ddd;
+            addusuario.ENDERECO = Pessoa.Endereco.Logradouro; 
+            addusuario.BAIRRO= Pessoa.Endereco.Bairro   ;
+            addusuario.CEP= Pessoa.Endereco.Cep   ;            
+            addusuario.IDCIDADE = Pessoa.Endereco.Idcidade  ;            
+            addusuario.PROFISSAO = Pessoa.Profissao;            
             addusuario.EMAIL = Pessoa.Email;
-            
-            //addusuario.IDDEPARTAMENTO = Endereco. 
-              
-            // addusuario.IDCIDADE = Endereco.;    
-            //addusuario.= _pessoa.Datanasc;
-            addusuario.CPFCNPJ = Pessoa.Cpfcnpj;
-             
-      
+            addusuario.SENHA = Senha;
+            addusuario.IDESCOLARIDADE = Int32.Parse(Pessoa.Escolaridade);
 
-
-            //addusuario.Senha = Senha();
             protocoloEntities banco = new protocoloEntities ();
             banco.tb_usuario.Add(addusuario); 
             banco.SaveChanges();
-   
+
+
+
+
+
+
         }
 
 
