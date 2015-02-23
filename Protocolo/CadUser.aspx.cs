@@ -28,48 +28,50 @@ namespace Protocolo
 
         protected void btngravar_Click(object sender, EventArgs e)
         {
-            LimparCampos();
-            //if (!VerificarEmailCadastrado())
-            //{
-
-            //    Usuario adicionar_user = new Usuario();
-            //    adicionar_user.Pessoa.Nome = Tnome.Text;
-            //    adicionar_user.Pessoa.Cpfcnpj = Util.RemoveCaractere(Tcpf.Text);
-            //    adicionar_user.Pessoa.Sexo = this.RadSEX.SelectedValue;
-            //    adicionar_user.Pessoa.Faixaetaria = this.Dfaixaetaria.SelectedValue;
-            //    string telefone =Util.RemoveCaractere(this.Ttelefone.Text);
-            //    adicionar_user.Pessoa.Telefone.Numero = telefone.Substring(3) ;
-            //    adicionar_user.Pessoa.Telefone.Ddd = telefone.Substring(1, 2);
-            //    string celular = Util.RemoveCaractere(this.Tcelular.Text);
-            //    adicionar_user.Pessoa.Celular.Ddd = celular.Substring(1,2);
-            //    adicionar_user.Pessoa.Celular.Numero = celular.Substring(3) ; 
-            //    adicionar_user.Pessoa.Endereco.Logradouro = Tendereco.Text;                
-            //    adicionar_user.Pessoa.Endereco.Outraslocalidades = Toutralocalidade.Text;
-            //    adicionar_user.Pessoa.Endereco.Bairro = Tbairro.Text;
-            //    adicionar_user.Pessoa.Endereco.Cep  = Util.RemoveCaractere(Tcep.Text);                
-            //    adicionar_user.Pessoa.Endereco.Idcidade = Int32.Parse(Dcidade.SelectedValue);
-            //    adicionar_user.Pessoa.Endereco.Outraslocalidades = this.Toutralocalidade.Text;                
-            //    adicionar_user.Pessoa.Escolaridade = this.Descolaridade.SelectedValue;                
-            //    adicionar_user.Pessoa.Profissao = this.Tprofissao.Text;
-            //    adicionar_user.Pessoa.Email = this.Temail.Text;                
-            //    adicionar_user.Senha = Tsenha.Text ;
-                
-
-                
-                
-                
-
-
-            //    adicionar_user.add();
-            //}
-            //else {
-            //    Lerrosenha.Visible = true;
-            //    Lerrosenha.Text = "Email já cadastrado";
-            //    this.Temail.Focus();
-       
             
-            
-            //}
+            if (!VerificarEmailCadastrado())
+            {
+
+                Usuario adicionar_user = new Usuario();
+                adicionar_user.Pessoa.Nome = Tnome.Text;
+                adicionar_user.Pessoa.Cpfcnpj = Util.RemoveCaractere(Tcpf.Text);
+                adicionar_user.Pessoa.Sexo = this.RadSEX.SelectedValue;
+                adicionar_user.Pessoa.Faixaetaria = this.Dfaixaetaria.SelectedValue;
+                string telefone = Util.RemoveCaractere(this.Ttelefone.Text);
+                adicionar_user.Pessoa.Telefone.Numero = telefone.Substring(3);
+                adicionar_user.Pessoa.Telefone.Ddd = telefone.Substring(1, 2);
+                string celular = Util.RemoveCaractere(this.Tcelular.Text);
+                adicionar_user.Pessoa.Celular.Ddd = celular.Substring(1, 2);
+                adicionar_user.Pessoa.Celular.Numero = celular.Substring(3);
+                adicionar_user.Pessoa.Endereco.Logradouro = Tendereco.Text;
+                adicionar_user.Pessoa.Endereco.Outraslocalidades = Toutralocalidade.Text;
+                adicionar_user.Pessoa.Endereco.Bairro = Tbairro.Text;
+                adicionar_user.Pessoa.Endereco.Cep = Util.RemoveCaractere(Tcep.Text);
+                adicionar_user.Pessoa.Endereco.Idcidade = Int32.Parse(Dcidade.SelectedValue);
+                adicionar_user.Pessoa.Endereco.Outraslocalidades = this.Toutralocalidade.Text;
+                adicionar_user.Pessoa.Escolaridade = this.Descolaridade.SelectedValue;
+                adicionar_user.Pessoa.Profissao = this.Tprofissao.Text;
+                adicionar_user.Pessoa.Email = this.Temail.Text;
+                adicionar_user.Senha = Tsenha.Text;
+
+
+
+
+
+
+                adicionar_user.add();
+                LimparCampos();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Lerrosenha.Visible = true;
+                Lerrosenha.Text = "Email já cadastrado";
+                this.Temail.Focus();
+
+
+
+            }
         }
         protected void CarregaCidade()
         {
