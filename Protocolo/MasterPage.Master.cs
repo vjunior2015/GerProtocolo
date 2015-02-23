@@ -25,7 +25,7 @@ namespace Protocolo
 
         protected void lnkCadastro_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CadastroUsuario.aspx");
+            Response.Redirect("CadUser.aspx");
         }
 
 

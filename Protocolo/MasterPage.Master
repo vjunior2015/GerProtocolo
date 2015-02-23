@@ -36,7 +36,7 @@
                     <ul id="menu">
                          <li><asp:LinkButton ID="lnkHome" runat="server" OnClick="lnkHome_Click">Home</asp:LinkButton></li>
                          <li><asp:LinkButton ID="lnkLogin" runat="server" OnClick="lnkLogin_Click" >Login</asp:LinkButton></li>
-		                <li><asp:LinkButton ID="lnkCadastro" runat="server" OnClick="lnkCadastro_Click">Cadastre-se</asp:LinkButton></li>		              
+		                <li><asp:LinkButton ID="CadUser" runat="server" OnClick="lnkCadastro_Click">Cadastre-se</asp:LinkButton></li>		              
 		                <li><asp:LinkButton ID="lnkSair" runat="server">Sair</asp:LinkButton></li> 
                     </ul>
                 </nav>
