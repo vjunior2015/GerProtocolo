@@ -9,10 +9,34 @@ namespace ProNegocio
     public class Pessoa
     {
         Telefone _telefone;
+        TelefoneCelular _celular;
+        private string _idade;
+        private DateTime _datanasc;
+        private string _cpfcnpj;
+        private string _faixaetaria;
+        private string _profissao;
+        private string _escolaridade;
         Endereco _endereco;
+        private string _nome;
+        private String _sexo;
 
 
 
+        public TelefoneCelular Celular
+        {
+            get { return _celular; }
+            set { _celular = value; }
+        }
+
+
+
+        public Telefone Telefone
+        {
+            get { return _telefone; }
+            set { _telefone = value; }
+        }
+
+        
         public Endereco Endereco
         {
             get { return _endereco; }
@@ -28,26 +52,22 @@ namespace ProNegocio
         }
 
 
-       public Telefone Telefone
-        {
-            get { return _telefone; }
-            set { _telefone = value; }
-        }
+  
 
 
-        private string _nome;
-        private String _sexo;
-
+        
         public String Sexo
         {
             get { return _sexo; }
             set { _sexo = value; }
         }
-        private string _idade;
-        private DateTime _datanasc;
-        private string _cpfcnpj;
-        private string _faixaetaria;
-        private string _profissao;
+        
+        public string Escolaridade
+        {
+            get { return _escolaridade; }
+            set { _escolaridade = value; }
+        }
+
 
         public string Profissao
         {
@@ -89,6 +109,8 @@ namespace ProNegocio
         }
         public Pessoa() {
             _telefone = new Telefone();
+            _celular = new TelefoneCelular();
+ 
             _endereco = new Endereco();
 
  
