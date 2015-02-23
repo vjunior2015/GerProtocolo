@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProNegocio
 {
-    public class Telefone
+    public  class Telefone
     {
+
         private string _numero;
 
         public string Numero
@@ -23,8 +24,8 @@ namespace ProNegocio
             set { _ddd = value; }
         }
 
-        public Telefone() { 
-        
+        public Telefone() {
+
         }
 
     }
