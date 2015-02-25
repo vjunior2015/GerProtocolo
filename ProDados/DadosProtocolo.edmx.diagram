@@ -17,6 +17,11 @@
         <EntityTypeShape EntityType="protocoloModel.tb_usuario" Width="1.5" PointX="2.6662832939374645" PointY="23.272668953646285" />
         <EntityTypeShape EntityType="protocoloModel.tb_usuario_nivel" Width="1.5" PointX="8.55891136851111" PointY="0.34052506105067443" />
         <EntityTypeShape EntityType="protocoloModel.tb_usuario_status" Width="1.5" PointX="1.65558700526859" PointY="28.182664884339395" />
+        <AssociationConnector Association="protocoloModel.IDPROTOCOLO" />
+        <AssociationConnector Association="protocoloModel.IDPROTOCOLOHIS" />
+        <AssociationConnector Association="protocoloModel.IDSTATUS" />
+        <AssociationConnector Association="protocoloModel.IDUSUARIONIVEL" />
+        <AssociationConnector Association="protocoloModel.IDUSUARIOSTATUS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

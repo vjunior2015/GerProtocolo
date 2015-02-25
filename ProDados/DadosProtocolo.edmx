@@ -18,6 +18,26 @@
           <EntitySet Name="tb_usuario" EntityType="protocoloModel.Store.tb_usuario" store:Type="Tables" Schema="db_protocolo" />
           <EntitySet Name="tb_usuario_nivel" EntityType="protocoloModel.Store.tb_usuario_nivel" store:Type="Tables" Schema="db_protocolo" />
           <EntitySet Name="tb_usuario_status" EntityType="protocoloModel.Store.tb_usuario_status" store:Type="Tables" Schema="db_protocolo" />
+          <AssociationSet Name="IDPROTOCOLO" Association="protocoloModel.Store.IDPROTOCOLO">
+            <End Role="tb_protocolo" EntitySet="tb_protocolo" />
+            <End Role="tb_protocolo_anexo" EntitySet="tb_protocolo_anexo" />
+          </AssociationSet>
+          <AssociationSet Name="IDPROTOCOLOHIS" Association="protocoloModel.Store.IDPROTOCOLOHIS">
+            <End Role="tb_protocolo" EntitySet="tb_protocolo" />
+            <End Role="tb_protocolo_historico" EntitySet="tb_protocolo_historico" />
+          </AssociationSet>
+          <AssociationSet Name="IDSTATUS" Association="protocoloModel.Store.IDSTATUS">
+            <End Role="tb_protocolo_status" EntitySet="tb_protocolo_status" />
+            <End Role="tb_protocolo" EntitySet="tb_protocolo" />
+          </AssociationSet>
+          <AssociationSet Name="IDUSUARIONIVEL" Association="protocoloModel.Store.IDUSUARIONIVEL">
+            <End Role="tb_usuario_nivel" EntitySet="tb_usuario_nivel" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="IDUSUARIOSTATUS" Association="protocoloModel.Store.IDUSUARIOSTATUS">
+            <End Role="tb_usuario_status" EntitySet="tb_usuario_status" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tb_cidade">
           <Key>
@@ -54,7 +74,7 @@
           </Key>
           <Property Name="IDPROTOCOLO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NumeroProtocolo" Type="varchar" MaxLength="45" />
-          <Property Name="Assunto" Type="varchar" MaxLength="100" />
+          <Property Name="Assunto" Type="varchar" MaxLength="200" />
           <Property Name="Data" Type="datetime" />
           <Property Name="Descricao" Type="varchar" MaxLength="500" />
           <Property Name="Observacao" Type="varchar" MaxLength="500" />
@@ -64,6 +84,7 @@
           <Property Name="CriadoPor" Type="int" />
           <Property Name="IDTIPODOCUMENTO" Type="int" />
           <Property Name="IDSTATUS" Type="int" />
+          <Property Name="Processo" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="tb_protocolo_anexo">
           <Key>
@@ -80,7 +101,7 @@
           </Key>
           <Property Name="IDPROTOCOLOHISTORICO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IDUSUARIORESPONSAVEL" Type="int" Nullable="false" />
-          <Property Name="IDPROTOCOLO" Type="int" Nullable="false" />
+          <Property Name="IDPROTOCOLO" Type="int" />
           <Property Name="IDDEPARTAMENTO" Type="int" />
           <Property Name="DETALHAMENTO" Type="varchar" MaxLength="500" />
         </EntityType>
@@ -124,6 +145,7 @@
           <Property Name="IDESCOLARIDADE" Type="int" />
           <Property Name="IDDEPARTAMENTO" Type="int" />
           <Property Name="OUTRALOCALIDADE" Type="varchar" MaxLength="100" />
+          <Property Name="IDGENERO" Type="int" />
         </EntityType>
         <EntityType Name="tb_usuario_nivel">
           <Key>
@@ -139,6 +161,72 @@
           <Property Name="IDUSUARIOSTATUS" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="STATUS" Type="varchar" MaxLength="45" />
         </EntityType>
+        <Association Name="IDPROTOCOLO">
+          <End Role="tb_protocolo" Type="protocoloModel.Store.tb_protocolo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_protocolo_anexo" Type="protocoloModel.Store.tb_protocolo_anexo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_protocolo">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Principal>
+            <Dependent Role="tb_protocolo_anexo">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDPROTOCOLOHIS">
+          <End Role="tb_protocolo" Type="protocoloModel.Store.tb_protocolo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_protocolo_historico" Type="protocoloModel.Store.tb_protocolo_historico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_protocolo">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Principal>
+            <Dependent Role="tb_protocolo_historico">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDSTATUS">
+          <End Role="tb_protocolo_status" Type="protocoloModel.Store.tb_protocolo_status" Multiplicity="0..1" />
+          <End Role="tb_protocolo" Type="protocoloModel.Store.tb_protocolo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_protocolo_status">
+              <PropertyRef Name="IDSTATUS" />
+            </Principal>
+            <Dependent Role="tb_protocolo">
+              <PropertyRef Name="IDSTATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDUSUARIONIVEL">
+          <End Role="tb_usuario_nivel" Type="protocoloModel.Store.tb_usuario_nivel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_usuario" Type="protocoloModel.Store.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario_nivel">
+              <PropertyRef Name="IDUSUARIONIVEL" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="IDNIVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDUSUARIOSTATUS">
+          <End Role="tb_usuario_status" Type="protocoloModel.Store.tb_usuario_status" Multiplicity="0..1" />
+          <End Role="tb_usuario" Type="protocoloModel.Store.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario_status">
+              <PropertyRef Name="IDUSUARIOSTATUS" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="IDSTATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -156,6 +244,26 @@
           <EntitySet Name="tb_usuario" EntityType="protocoloModel.tb_usuario" />
           <EntitySet Name="tb_usuario_nivel" EntityType="protocoloModel.tb_usuario_nivel" />
           <EntitySet Name="tb_usuario_status" EntityType="protocoloModel.tb_usuario_status" />
+          <AssociationSet Name="IDPROTOCOLO" Association="protocoloModel.IDPROTOCOLO">
+            <End Role="tb_protocolo" EntitySet="tb_protocolo" />
+            <End Role="tb_protocolo_anexo" EntitySet="tb_protocolo_anexo" />
+          </AssociationSet>
+          <AssociationSet Name="IDPROTOCOLOHIS" Association="protocoloModel.IDPROTOCOLOHIS">
+            <End Role="tb_protocolo" EntitySet="tb_protocolo" />
+            <End Role="tb_protocolo_historico" EntitySet="tb_protocolo_historico" />
+          </AssociationSet>
+          <AssociationSet Name="IDSTATUS" Association="protocoloModel.IDSTATUS">
+            <End Role="tb_protocolo_status" EntitySet="tb_protocolo_status" />
+            <End Role="tb_protocolo" EntitySet="tb_protocolo" />
+          </AssociationSet>
+          <AssociationSet Name="IDUSUARIONIVEL" Association="protocoloModel.IDUSUARIONIVEL">
+            <End Role="tb_usuario_nivel" EntitySet="tb_usuario_nivel" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="IDUSUARIOSTATUS" Association="protocoloModel.IDUSUARIOSTATUS">
+            <End Role="tb_usuario_status" EntitySet="tb_usuario_status" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tb_cidade">
           <Key>
@@ -192,7 +300,7 @@
           </Key>
           <Property Type="Int32" Name="IDPROTOCOLO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="NumeroProtocolo" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Assunto" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Assunto" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="Data" Precision="0" />
           <Property Type="String" Name="Descricao" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Observacao" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -202,6 +310,10 @@
           <Property Type="Int32" Name="CriadoPor" />
           <Property Type="Int32" Name="IDTIPODOCUMENTO" />
           <Property Type="Int32" Name="IDSTATUS" />
+          <Property Type="String" Name="Processo" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_protocolo_anexo" Relationship="protocoloModel.IDPROTOCOLO" FromRole="tb_protocolo" ToRole="tb_protocolo_anexo" />
+          <NavigationProperty Name="tb_protocolo_historico" Relationship="protocoloModel.IDPROTOCOLOHIS" FromRole="tb_protocolo" ToRole="tb_protocolo_historico" />
+          <NavigationProperty Name="tb_protocolo_status" Relationship="protocoloModel.IDSTATUS" FromRole="tb_protocolo" ToRole="tb_protocolo_status" />
         </EntityType>
         <EntityType Name="tb_protocolo_anexo">
           <Key>
@@ -211,6 +323,7 @@
           <Property Type="Int32" Name="IDPROTOCOLO" />
           <Property Type="String" Name="ARQUIVO" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="TIPOARQUIVO" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_protocolo" Relationship="protocoloModel.IDPROTOCOLO" FromRole="tb_protocolo_anexo" ToRole="tb_protocolo" />
         </EntityType>
         <EntityType Name="tb_protocolo_historico">
           <Key>
@@ -218,9 +331,10 @@
           </Key>
           <Property Type="Int32" Name="IDPROTOCOLOHISTORICO" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="IDUSUARIORESPONSAVEL" Nullable="false" />
-          <Property Type="Int32" Name="IDPROTOCOLO" Nullable="false" />
+          <Property Type="Int32" Name="IDPROTOCOLO" />
           <Property Type="Int32" Name="IDDEPARTAMENTO" />
           <Property Type="String" Name="DETALHAMENTO" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_protocolo" Relationship="protocoloModel.IDPROTOCOLOHIS" FromRole="tb_protocolo_historico" ToRole="tb_protocolo" />
         </EntityType>
         <EntityType Name="tb_protocolo_status">
           <Key>
@@ -228,6 +342,7 @@
           </Key>
           <Property Type="Int32" Name="IDSTATUS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="STATUS" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_protocolo" Relationship="protocoloModel.IDSTATUS" FromRole="tb_protocolo_status" ToRole="tb_protocolo" />
         </EntityType>
         <EntityType Name="tb_tipodocumento">
           <Key>
@@ -262,6 +377,9 @@
           <Property Type="Int32" Name="IDESCOLARIDADE" />
           <Property Type="Int32" Name="IDDEPARTAMENTO" />
           <Property Type="String" Name="OUTRALOCALIDADE" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IDGENERO" />
+          <NavigationProperty Name="tb_usuario_nivel" Relationship="protocoloModel.IDUSUARIONIVEL" FromRole="tb_usuario" ToRole="tb_usuario_nivel" />
+          <NavigationProperty Name="tb_usuario_status" Relationship="protocoloModel.IDUSUARIOSTATUS" FromRole="tb_usuario" ToRole="tb_usuario_status" />
         </EntityType>
         <EntityType Name="tb_usuario_nivel">
           <Key>
@@ -269,6 +387,7 @@
           </Key>
           <Property Type="Int32" Name="IDUSUARIONIVEL" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="NIVEL" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="protocoloModel.IDUSUARIONIVEL" FromRole="tb_usuario_nivel" ToRole="tb_usuario" />
         </EntityType>
         <EntityType Name="tb_usuario_status">
           <Key>
@@ -276,7 +395,74 @@
           </Key>
           <Property Type="Int32" Name="IDUSUARIOSTATUS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="STATUS" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="protocoloModel.IDUSUARIOSTATUS" FromRole="tb_usuario_status" ToRole="tb_usuario" />
         </EntityType>
+        <Association Name="IDPROTOCOLO">
+          <End Type="protocoloModel.tb_protocolo" Role="tb_protocolo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="protocoloModel.tb_protocolo_anexo" Role="tb_protocolo_anexo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_protocolo">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Principal>
+            <Dependent Role="tb_protocolo_anexo">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDPROTOCOLOHIS">
+          <End Type="protocoloModel.tb_protocolo" Role="tb_protocolo" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="protocoloModel.tb_protocolo_historico" Role="tb_protocolo_historico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_protocolo">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Principal>
+            <Dependent Role="tb_protocolo_historico">
+              <PropertyRef Name="IDPROTOCOLO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDSTATUS">
+          <End Type="protocoloModel.tb_protocolo_status" Role="tb_protocolo_status" Multiplicity="0..1" />
+          <End Type="protocoloModel.tb_protocolo" Role="tb_protocolo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_protocolo_status">
+              <PropertyRef Name="IDSTATUS" />
+            </Principal>
+            <Dependent Role="tb_protocolo">
+              <PropertyRef Name="IDSTATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDUSUARIONIVEL">
+          <End Type="protocoloModel.tb_usuario_nivel" Role="tb_usuario_nivel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="protocoloModel.tb_usuario" Role="tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario_nivel">
+              <PropertyRef Name="IDUSUARIONIVEL" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="IDNIVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDUSUARIOSTATUS">
+          <End Type="protocoloModel.tb_usuario_status" Role="tb_usuario_status" Multiplicity="0..1" />
+          <End Type="protocoloModel.tb_usuario" Role="tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario_status">
+              <PropertyRef Name="IDUSUARIOSTATUS" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="IDSTATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -319,6 +505,7 @@
           <EntitySetMapping Name="tb_protocolo">
             <EntityTypeMapping TypeName="protocoloModel.tb_protocolo">
               <MappingFragment StoreEntitySet="tb_protocolo">
+                <ScalarProperty Name="Processo" ColumnName="Processo" />
                 <ScalarProperty Name="IDSTATUS" ColumnName="IDSTATUS" />
                 <ScalarProperty Name="IDTIPODOCUMENTO" ColumnName="IDTIPODOCUMENTO" />
                 <ScalarProperty Name="CriadoPor" ColumnName="CriadoPor" />
@@ -374,6 +561,7 @@
           <EntitySetMapping Name="tb_usuario">
             <EntityTypeMapping TypeName="protocoloModel.tb_usuario">
               <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="IDGENERO" ColumnName="IDGENERO" />
                 <ScalarProperty Name="OUTRALOCALIDADE" ColumnName="OUTRALOCALIDADE" />
                 <ScalarProperty Name="IDDEPARTAMENTO" ColumnName="IDDEPARTAMENTO" />
                 <ScalarProperty Name="IDESCOLARIDADE" ColumnName="IDESCOLARIDADE" />
@@ -430,7 +618,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

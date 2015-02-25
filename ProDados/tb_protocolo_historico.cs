@@ -16,8 +16,10 @@ namespace ProDados
     {
         public int IDPROTOCOLOHISTORICO { get; set; }
         public int IDUSUARIORESPONSAVEL { get; set; }
-        public int IDPROTOCOLO { get; set; }
+        public Nullable<int> IDPROTOCOLO { get; set; }
         public Nullable<int> IDDEPARTAMENTO { get; set; }
         public string DETALHAMENTO { get; set; }
+    
+        public virtual tb_protocolo tb_protocolo { get; set; }
     }
 }

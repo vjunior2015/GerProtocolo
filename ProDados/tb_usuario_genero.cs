@@ -12,15 +12,15 @@ namespace ProDados
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_usuario_nivel
+    public partial class tb_usuario_genero
     {
-        public tb_usuario_nivel()
+        public tb_usuario_genero()
         {
             this.tb_usuario = new HashSet<tb_usuario>();
         }
     
-        public int IDUSUARIONIVEL { get; set; }
-        public string NIVEL { get; set; }
+        public int idGenero { get; set; }
+        public string Genero { get; set; }
     
         public virtual ICollection<tb_usuario> tb_usuario { get; set; }
     }

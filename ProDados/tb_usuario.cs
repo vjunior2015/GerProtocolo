@@ -36,5 +36,9 @@ namespace ProDados
         public Nullable<int> IDESCOLARIDADE { get; set; }
         public Nullable<int> IDDEPARTAMENTO { get; set; }
         public string OUTRALOCALIDADE { get; set; }
+        public Nullable<int> IDGENERO { get; set; }
+    
+        public virtual tb_usuario_nivel tb_usuario_nivel { get; set; }
+        public virtual tb_usuario_status tb_usuario_status { get; set; }
     }
 }

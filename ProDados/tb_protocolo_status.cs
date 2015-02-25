@@ -14,7 +14,14 @@ namespace ProDados
     
     public partial class tb_protocolo_status
     {
+        public tb_protocolo_status()
+        {
+            this.tb_protocolo = new HashSet<tb_protocolo>();
+        }
+    
         public int IDSTATUS { get; set; }
         public string STATUS { get; set; }
+    
+        public virtual ICollection<tb_protocolo> tb_protocolo { get; set; }
     }
 }

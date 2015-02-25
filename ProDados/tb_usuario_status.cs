@@ -14,7 +14,14 @@ namespace ProDados
     
     public partial class tb_usuario_status
     {
+        public tb_usuario_status()
+        {
+            this.tb_usuario = new HashSet<tb_usuario>();
+        }
+    
         public int IDUSUARIOSTATUS { get; set; }
         public string STATUS { get; set; }
+    
+        public virtual ICollection<tb_usuario> tb_usuario { get; set; }
     }
 }

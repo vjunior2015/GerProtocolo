@@ -18,5 +18,7 @@ namespace ProDados
         public Nullable<int> IDPROTOCOLO { get; set; }
         public string ARQUIVO { get; set; }
         public string TIPOARQUIVO { get; set; }
+    
+        public virtual tb_protocolo tb_protocolo { get; set; }
     }
 }
