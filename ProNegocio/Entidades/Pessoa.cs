@@ -19,7 +19,8 @@ namespace ProNegocio
         Endereco _endereco;
         private string _nome;
         private String _sexo;
-
+        private String _nivel;
+        private String _status;
 
 
         public TelefoneCelular Celular
@@ -114,6 +115,18 @@ namespace ProNegocio
             _endereco = new Endereco();
 
  
+        }
+
+        public string Nivel
+        {
+            get { return _nivel; }
+            set { _nivel = value; }
+        }
+
+        public string Status
+        {
+            get { return _status; }
+            set { _status = value; }
         }
 
     }
