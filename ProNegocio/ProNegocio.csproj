@@ -45,9 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entidades\Autentica.cs" />
     <Compile Include="Entidades\Endereco.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Protocolo.cs" />
     <Compile Include="Entidades\Telefone.cs" />
     <Compile Include="Entidades\TipoTelefone.cs" />
     <Compile Include="Service\Util.cs" />

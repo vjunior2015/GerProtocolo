@@ -7,3 +7,12 @@ C:\Projetos\Protocolo\ProNegocio\bin\Debug\ProDados.dll
 C:\Projetos\Protocolo\ProNegocio\bin\Debug\EntityFramework.dll
 C:\Projetos\Protocolo\ProNegocio\bin\Debug\ProDados.pdb
 C:\Projetos\Protocolo\ProNegocio\bin\Debug\EntityFramework.xml
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\bin\Debug\ProNegocio.dll
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\bin\Debug\ProNegocio.pdb
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\bin\Debug\EntityFramework.dll
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\bin\Debug\ProDados.dll
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\bin\Debug\EntityFramework.xml
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\bin\Debug\ProDados.pdb
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\obj\Debug\ProNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\obj\Debug\ProNegocio.dll
+C:\Users\Silvana\Desktop\Projeto\Protocolo_jr\ProNegocio\obj\Debug\ProNegocio.pdb
