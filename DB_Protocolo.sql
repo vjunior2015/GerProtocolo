@@ -281,6 +281,7 @@ CREATE TABLE `tb_usuario` (
   `IDESCOLARIDADE` int(11) DEFAULT NULL,
   `IDDEPARTAMENTO` int(11) DEFAULT NULL,
   `OUTRALOCALIDADE` varchar(100) DEFAULT NULL,
+  `IDGENERO` INT NULL,
   PRIMARY KEY (`IDUSUARIO`),
   UNIQUE KEY `IDUSUARIO_UNIQUE` (`IDUSUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -351,3 +352,138 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2015-02-17 16:59:12
+
+
+
+
+--
+-- Table structure for table `tb_usuario_genero`
+--
+
+DROP TABLE IF EXISTS `tb_usuario_genero`;
+
+CREATE TABLE `tb_usuario_genero` 
+(
+  `idGenero` int(11) NOT NULL AUTO_INCREMENT,
+  
+   `Genero` varchar(45) DEFAULT NULL,
+ 
+    PRIMARY KEY (`idGenero`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+
+
+
+
+INSERT INTO `db_protocolo`.`tb_usuario_genero`
+(`Genero`)
+VALUES
+("Pessoa Fisica");
+
+
+
+INSERT INTO `db_protocolo`.`tb_usuario_genero`
+(`Genero`)
+VALUES
+("Pessoa Juridica");
+
+
+
+ALTER TABLE `db_protocolo`.`tb_usuario` 
+ADD INDEX `IDUSUARIONIVEL_idx` (`IDNIVEL` ASC);
+
+ALTER TABLE `db_protocolo`.`tb_usuario` 
+ADD CONSTRAINT `IDUSUARIONIVEL`
+  FOREIGN KEY (`IDNIVEL`)
+  REFERENCES `db_protocolo`.`tb_usuario_nivel` (`IDUSUARIONIVEL`)
+  ON DELETE SET NULL
+
+  ON UPDATE SET NULL
+;
+
+
+
+ALTER TABLE `db_protocolo`.`tb_usuario` 
+ADD INDEX `IDGENERO_idx` (`IDGENERO` ASC);
+
+
+ALTER TABLE `db_protocolo`.`tb_usuario` 
+ADD CONSTRAINT `IDGENERO`
+  FOREIGN KEY (`IDGENERO`)
+  REFERENCES `db_protocolo`.`tb_usuario_genero` (`idGenero`)
+  ON DELETE SET NULL
+  ON UPDATE SET NULL;
+
+
+ALTER TABLE `db_protocolo`.`tb_usuario` 
+ADD INDEX `IDUSUARIOSTATUS_idx` (`IDSTATUS` ASC);
+
+ALTER TABLE `db_protocolo`.`tb_usuario` 
+ADD CONSTRAINT `IDUSUARIOSTATUS`
+  FOREIGN KEY (`IDSTATUS`)
+  REFERENCES `db_protocolo`.`tb_usuario_status` (`IDUSUARIOSTATUS`)
+  ON DELETE SET NULL
+  ON UPDATE SET NULL;
+
+
+ALTER TABLE `db_protocolo`.`tb_protocolo` 
+ADD INDEX `IDSTATUS_idx` (`IDSTATUS` ASC);
+
+ALTER TABLE `db_protocolo`.`tb_protocolo` 
+ADD CONSTRAINT `IDSTATUS`
+  FOREIGN KEY (`IDSTATUS`)
+  REFERENCES `db_protocolo`.`tb_protocolo_status` (`IDSTATUS`)
+  ON DELETE SET NULL
+  ON UPDATE SET NULL;
+
+
+ALTER TABLE `db_protocolo`.`tb_protocolo_anexo` 
+ADD INDEX `IDPROTOCOLO_idx` (`IDPROTOCOLO` ASC);
+
+ALTER TABLE `db_protocolo`.`tb_protocolo_anexo` 
+ADD CONSTRAINT `IDPROTOCOLO`
+  FOREIGN KEY (`IDPROTOCOLO`)
+  REFERENCES `db_protocolo`.`tb_protocolo` (`IDPROTOCOLO`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+
+ALTER TABLE `db_protocolo`.`tb_protocolo_historico` 
+CHANGE COLUMN `IDPROTOCOLO` `IDPROTOCOLO` INT(11) NULL ;
+
+ALTER TABLE `db_protocolo`.`tb_protocolo_historico` 
+ADD CONSTRAINT `IDPROTOCOLOHIS`
+  FOREIGN KEY (`IDPROTOCOLO`)
+  REFERENCES `db_protocolo`.`tb_protocolo` (`IDPROTOCOLO`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+
+ALTER TABLE `db_protocolo`.`tb_protocolo` 
+ADD COLUMN `Processo` VARCHAR(45) NULL AFTER `IDSTATUS`;
+
+
+ALTER TABLE `db_protocolo`.`tb_protocolo` 
+CHANGE COLUMN `Assunto` `Assunto` VARCHAR(200) NULL DEFAULT NULL;
+
+
+
+INSERT INTO `db_protocolo`.`tb_departamento`
+(`DEPARTAMENTO`)
+VALUES
+("Administrativo");
+
+
+INSERT INTO `db_protocolo`.`tb_departamento`
+(`DEPARTAMENTO`)
+VALUES
+("Financeiro");
+
+
+INSERT INTO `db_protocolo`.`tb_departamento`
+(`DEPARTAMENTO`)
+VALUES
+("Juridico");
+
+
+
